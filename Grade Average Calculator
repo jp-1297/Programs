@@ -1,0 +1,118 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace TestScoreAVerager
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void btnAverage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Varibles
+                decimal scores;           // to hold scores
+                decimal average = 0;      // to hold the average
+                decimal Final_Average = 0;
+
+                // Declare StreamReader varible
+                StreamReader inputFile;
+
+                //Open the file and get a StreamReader object.
+                inputFile = File.OpenText("JordiTest.txt");
+
+                //Read the files contents
+                while (!inputFile.EndOfStream)
+                {
+                    //Get a score amount
+                    scores = decimal.Parse(inputFile.ReadLine());
+
+                    //Get average
+                    average += scores;
+
+                    Final_Average = average / 6;
+                                          
+                                                            
+                }
+
+                if (Final_Average < 60)
+                {
+                    averageLabel.Text = "Letter Grade is an F " + Final_Average.ToString("n2")+("%");
+                }
+                else
+                {
+                   if (Final_Average < 70)
+                   {
+                        averageLabel.Text = "Letter Grade is an D " + Final_Average.ToString("n2")+("%");
+                   }
+                    else
+                    {
+                        if (Final_Average < 80)
+                        {
+                            averageLabel.Text = "Letter Grade is an C " + Final_Average.ToString("n2")+("%");
+                        
+                        }
+                        else
+                        {
+                            if (Final_Average < 90)
+                            {
+                                averageLabel.Text = "Letter Grade is an B " + Final_Average.ToString("n2")+("%");
+
+                            }
+                            else
+                            {
+                                averageLabel.Text = "Letter Grade is an A " + Final_Average.ToString("n2")+("%");
+                            }
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
+
+
+                // close the file
+                inputFile.Close();
+
+                //Display Average
+
+               
+
+            }
+            catch (Exception ex)
+            {
+                //Display an error message
+                MessageBox.Show("error");
+
+
+            }
+            
+            
+
+        }
+
+    }
+}
