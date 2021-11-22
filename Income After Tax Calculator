@@ -1,0 +1,97 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ChrisPerry_Income
+{
+    public partial class ChrisPerry_Income : Form
+    {
+
+        public ChrisPerry_Income()
+        {
+            InitializeComponent();
+        }
+
+        private void txtboxYearlySalary_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIncomeTaxOutput_Click(object sender, EventArgs e)
+        {
+                                    
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lblFederalTaxOutput_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalTaxsPaidOutput_Click(object sender, EventArgs e)
+        {
+                        
+        }
+
+        private void lblNetincomeOutput_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            const decimal Income_Tax = .15m;
+            const decimal Federal_Tax = .05m;
+
+            decimal Yearly_Salary;
+
+            decimal Income_Tax_Paid;
+
+            decimal Federal_Tax_Paid;
+
+            decimal Net_Tax_Paid;
+
+            decimal Net_Income;
+
+
+
+
+            Yearly_Salary = decimal.Parse(txtboxYearlySalary.Text);
+
+            Income_Tax_Paid = Yearly_Salary * Income_Tax;
+
+            Federal_Tax_Paid = Yearly_Salary * Federal_Tax;
+
+            Net_Tax_Paid = Income_Tax_Paid + Federal_Tax_Paid;
+
+            Net_Income = Yearly_Salary - Net_Tax_Paid;
+
+
+
+
+            lblIncomeTaxOutput.Text = Income_Tax_Paid.ToString("c");
+
+            lblFederalTaxOutput.Text = Federal_Tax_Paid.ToString("c");
+
+            lblTotalTaxsPaidOutput.Text = Net_Tax_Paid.ToString("c");
+
+            lblNetincomeOutput.Text = Net_Income.ToString("c");
+
+
+
+        }
+        private void lblNetincome_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
