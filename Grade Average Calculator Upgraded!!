@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace Practice_Final
+{
+    public partial class clearButton : Form
+    {
+        public clearButton()
+        {
+            InitializeComponent();
+        }
+
+        private void gradelabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+                         
+            try
+            {
+                                
+                //Varibles to hold the number read from the file and its total
+                int number1, number2, number3, number4, number5, number6, total, testScoreAverage;
+
+                
+                //Declare a SteamReader varible
+                StreamReader inputFile;
+                //Open the file
+                inputFile = File.OpenText("TestScores.txt");
+
+                //Read numbers from file
+                number1 = int.Parse(inputFile.ReadLine());
+                number2 = int.Parse(inputFile.ReadLine());
+                number3 = int.Parse(inputFile.ReadLine());  
+                number4 = int.Parse(inputFile.ReadLine());
+                number5 = int.Parse(inputFile.ReadLine());
+                number6 = int.Parse(inputFile.ReadLine());
+
+                //Calculate the total of the numbers
+                total = number1 + number2 + number3 + number4 + number5 + number6;
+                //Display the average
+                testScoreAverage = total / 6;
+
+                GradeLevvel.Text = testScoreAverage.ToString();
+
+                //Determine the Grade
+                if (testScoreAverage < 60)
+                {
+                    GradeLevvel.Text = "Your class average is a " + testScoreAverage.ToString() + " and that is an F";
+                }
+                else if (testScoreAverage < 70)
+                {
+                    GradeLevvel.Text = "Your class average is a " + testScoreAverage.ToString() + " and that is an D";
+                }
+                else if (testScoreAverage < 80)
+                {
+                    GradeLevvel.Text = "Your class average is a " + testScoreAverage.ToString() + " and that is an C";
+                }
+                else if (testScoreAverage < 90)
+                {
+                    GradeLevvel.Text = "Your class average is a " + testScoreAverage.ToString() + " and that is an B";
+                }
+                else
+                {
+                    GradeLevvel.Text = "Your class average is a " + testScoreAverage.ToString() + " and that is an A";
+                }
+                                                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You a fucking nigga");
+            }
+            
+        }
+
+        private void GradeLevvel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            GradeLevvel.Text = "";
+        }
+    }
+}
