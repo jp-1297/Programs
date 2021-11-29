@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Chris_MilageCalc
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                double miles;       // To hold miles driven
+                double gallons;     // To hold gallons used
+                double mpg;         // To hold MPG
+
+                //Get the miles driven and assign it to 
+                // the miles varible.
+                miles = double.Parse(milesTextbox.Text);
+
+                //Get the gallons used and assign it to 
+                // the gallons varible.
+                gallons = double.Parse(gallonsTextbox.Text);
+
+                //Calculate MPG
+                mpg = miles / gallons;
+
+                //Display the MPG in the mpgLabel control.
+                mpglabel.Text = mpg.ToString();
+
+            }
+            catch
+            {
+                //Display an error message.
+                MessageBox.Show("Invalid data was entered.");
+            }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            //Clear the text
+            mpglabel.Text = "";
+            gallonsTextbox.Text = "";
+            milesTextbox.Text = "";
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
