@@ -4,3 +4,7 @@ Get-Service
 Get-Process
 Clear
 New-Object
+Set-Alias
+Get-Netipaddress
+Mkdir
+Get-childitem
