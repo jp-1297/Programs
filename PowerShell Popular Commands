@@ -8,3 +8,4 @@ Set-Alias
 Get-Netipaddress
 Mkdir
 Get-childitem
+invoke-IpamGpoProvisioning   ## This is done on the IPAM server ##
