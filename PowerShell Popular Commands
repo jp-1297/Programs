@@ -9,3 +9,4 @@ Get-Netipaddress
 Mkdir
 Get-childitem
 invoke-IpamGpoProvisioning   ## This is done on the IPAM server ##
+(Get-WmiObject -query ‘select * from SoftwareLicensingService’).OA3xOriginalProductKey     #gets windows activation key from bios
